@@ -1,0 +1,777 @@
+/* ========== BOARD SECTION ========== */
+.bs-section {
+    padding: 60px 40px;
+    margin: 40px 20px;
+    border-radius: 22px;
+    border: 1px solid #EEE;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.10) 0%, rgba(0, 102, 255, 0.10) 100%);
+}
+
+.bs-inner {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+}
+
+/* ----- Left Text ----- */
+.bs-left {
+    flex: 0 0 240px;
+    min-width: 200px;
+}
+
+.bs-title {
+    color: #222326;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 2px;
+    text-transform: capitalize;
+    margin-bottom: 14px;
+}
+
+.bs-subtitle {
+    font-size: 15px;
+    color: #555;
+    line-height: 1.7;
+}
+
+/* ----- Right (Phone + Cards) ----- */
+.bs-right {
+    flex: 1;
+    position: relative;
+    min-height: 460px;
+    min-width: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Concentric arcs */
+.bs-arcs {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+}
+
+.bs-arc {
+    position: absolute;
+    border-radius: 50%;
+    border: 1.5px dashed rgba(130, 160, 220, 0.25);
+}
+
+.bs-arc--1 {
+    width: 200px;
+    height: 200px;
+}
+
+.bs-arc--2 {
+    width: 340px;
+    height: 340px;
+}
+
+.bs-arc--3 {
+    width: 480px;
+    height: 480px;
+}
+
+/* ----- Phone Mockup ----- */
+.bs-phone {
+    position: relative;
+    width: 170px;
+    background: #fff;
+    border-radius: 28px;
+    border: 8px solid #1a1a1a;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.18);
+    overflow: hidden;
+    min-height: 340px;
+}
+
+.bs-phone-notch {
+    width: 60px;
+    height: 14px;
+    background: #1a1a1a;
+    border-radius: 0 0 10px 10px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+.bs-phone-screen {
+    padding: 10px 10px 14px;
+    background: #f8f8fc;
+    min-height: 300px;
+}
+
+/* Profile */
+.bs-profile-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+.bs-avatar {
+    flex-shrink: 0;
+}
+
+.bs-avatar-img {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #a78bfa, #7c3aed);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bs-profile-name {
+    font-size: 10px;
+    font-weight: 700;
+    color: #111;
+}
+
+.bs-profile-icons {
+    font-size: 9px;
+    margin-top: 2px;
+}
+
+.bs-phone-section-label {
+    font-size: 9px;
+    font-weight: 700;
+    color: #111;
+    margin: 6px 0 3px;
+}
+
+.bs-phone-text {
+    font-size: 8px;
+    color: #666;
+    line-height: 1.5;
+    margin-bottom: 6px;
+}
+
+/* Gallery */
+.bs-gallery-tabs {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 6px;
+}
+
+.bs-tab {
+    font-size: 8px;
+    padding: 2px 6px;
+    border-radius: 99px;
+    color: #888;
+    cursor: pointer;
+}
+
+.bs-tab--active {
+    background: #111;
+    color: #fff;
+}
+
+.bs-gallery-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 3px;
+}
+
+.bs-gallery-item {
+    height: 40px;
+    border-radius: 6px;
+}
+
+.bs-gallery-item--blue {
+    background: linear-gradient(135deg, #60a5fa, #3b82f6);
+}
+
+.bs-gallery-item--sky {
+    background: linear-gradient(135deg, #7dd3fc, #38bdf8);
+}
+
+.bs-gallery-item--ocean {
+    background: linear-gradient(135deg, #a5f3fc, #22d3ee);
+}
+
+/* ===== Floating Mini-cards ===== */
+.bs-mini-card {
+    position: absolute;
+    background: #fff;
+    border-radius: 10px;
+    padding: 8px 10px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    width: 110px;
+    z-index: 5;
+}
+
+.bs-mini-title {
+    font-size: 9px;
+    font-weight: 600;
+    color: #111;
+    margin-bottom: 4px;
+}
+
+.bs-mini-label {
+    font-size: 9px;
+    font-weight: 700;
+    color: #7c3aed;
+    margin-bottom: 4px;
+}
+
+.bs-mini-lines {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    margin-bottom: 5px;
+}
+
+.bs-mini-line {
+    height: 4px;
+    background: #e5e7eb;
+    border-radius: 99px;
+}
+
+.bs-mini-dots {
+    display: flex;
+    gap: 3px;
+}
+
+.bs-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.bs-dot--red {
+    background: #ef4444;
+}
+
+.bs-dot--blue {
+    background: #3b82f6;
+}
+
+.bs-dot--green {
+    background: #22c55e;
+}
+
+/* Card Positions */
+.bs-float--tl1 {
+    top: 3%;
+    left: 25%;
+}
+
+.bs-float--tl2 {
+    top: 23%;
+    left: 19%;
+}
+
+.bs-float--tr1 {
+    top: 3%;
+    right: 26%;
+}
+
+.bs-float--tr2 {
+    top: 41%;
+    right: 16%;
+}
+
+.bs-float--ml {
+    top: 42%;
+    left: 16%;
+}
+
+.bs-float--ml2 {
+    bottom: 8%;
+    left: 23%;
+}
+
+.bs-float--mr1 {
+    width: 120px;
+    top: 23%;
+    right: 18%;
+}
+
+.bs-float--bl1 {
+    left: 43%;
+    top: -8%;
+}
+
+.bs-float--bl2 {
+    bottom: 26%;
+    left: 17%;
+}
+
+.bs-float--br1 {
+    bottom: 27%;
+    right: 17%;
+}
+
+.bs-float--br2 {
+    bottom: 9%;
+    right: 23%;
+}
+
+/* ===== RESPONSIVE ===== */
+
+/* --- Tablet Landscape (max 1024px) --- */
+@media (max-width: 1024px) {
+    .bs-section {
+        padding: 50px 30px;
+        margin: 30px 16px;
+    }
+
+    .bs-right {
+        min-height: 420px;
+    }
+
+    .bs-arc--3 {
+        width: 420px;
+        height: 420px;
+    }
+
+    .bs-arc--2 {
+        width: 300px;
+        height: 300px;
+    }
+
+    .bs-arc--1 {
+        width: 180px;
+        height: 180px;
+    }
+
+    .bs-mini-card {
+        width: 100px;
+        padding: 6px 8px;
+    }
+
+    .bs-float--tl1 {
+        top: 5%;
+        left: 18%;
+    }
+
+    .bs-float--tl2 {
+        top: 25%;
+        left: 14%;
+    }
+
+    .bs-float--tr1 {
+        top: 5%;
+        right: 20%;
+    }
+
+    .bs-float--tr2 {
+        top: 42%;
+        right: 12%;
+    }
+
+    .bs-float--ml {
+        top: 44%;
+        left: 12%;
+    }
+
+    .bs-float--ml2 {
+        bottom: 10%;
+        left: 18%;
+    }
+
+    .bs-float--mr1 {
+        width: 110px;
+        top: 25%;
+        right: 14%;
+    }
+
+    .bs-float--bl1 {
+        left: 40%;
+        top: -6%;
+    }
+
+    .bs-float--bl2 {
+        bottom: 28%;
+        left: 13%;
+    }
+
+    .bs-float--br1 {
+        bottom: 28%;
+        right: 13%;
+    }
+
+    .bs-float--br2 {
+        bottom: 10%;
+        right: 18%;
+    }
+}
+
+/* --- Tablet Portrait (max 768px) --- */
+@media (max-width: 768px) {
+    .bs-section {
+        padding: 40px 20px;
+        margin: 20px 12px;
+    }
+
+    .bs-inner {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .bs-left {
+        flex: none;
+        width: 100%;
+        text-align: center;
+    }
+
+    .bs-title {
+        font-size: 28px;
+        letter-spacing: 1px;
+    }
+
+    .bs-subtitle {
+        font-size: 14px;
+    }
+
+    .bs-right {
+        width: 100%;
+        min-height: 380px;
+    }
+
+    .bs-arc--3 {
+        width: 340px;
+        height: 340px;
+    }
+
+    .bs-arc--2 {
+        width: 240px;
+        height: 240px;
+    }
+
+    .bs-arc--1 {
+        width: 150px;
+        height: 150px;
+    }
+
+    .bs-mini-card {
+        width: 95px;
+        padding: 6px 8px;
+    }
+
+    .bs-mini-title {
+        font-size: 8px;
+    }
+
+    .bs-mini-label {
+        font-size: 8px;
+    }
+
+    .bs-float--tl1 {
+        top: 4%;
+        left: 8%;
+    }
+
+    .bs-float--tl2 {
+        top: 26%;
+        left: 4%;
+    }
+
+    .bs-float--tr1 {
+        top: 4%;
+        right: 8%;
+    }
+
+    .bs-float--tr2 {
+        top: 42%;
+        right: 3%;
+    }
+
+    .bs-float--ml {
+        top: 44%;
+        left: 3%;
+    }
+
+    .bs-float--ml2 {
+        bottom: 8%;
+        left: 8%;
+    }
+
+    .bs-float--mr1 {
+        width: 105px;
+        top: 26%;
+        right: 3%;
+    }
+
+    .bs-float--bl1 {
+        left: 38%;
+        top: -6%;
+    }
+
+    .bs-float--bl2 {
+        bottom: 26%;
+        left: 4%;
+    }
+
+    .bs-float--br1 {
+        bottom: 26%;
+        right: 4%;
+    }
+
+    .bs-float--br2 {
+        bottom: 8%;
+        right: 8%;
+    }
+}
+
+/* --- Mobile (max 480px) --- */
+@media (max-width: 480px) {
+    .bs-section {
+        padding: 32px 16px;
+        margin: 16px 8px;
+    }
+
+    .bs-title {
+        font-size: 24px;
+        letter-spacing: 0.5px;
+    }
+
+    .bs-subtitle {
+        font-size: 13px;
+    }
+
+    .bs-right {
+        min-height: 340px;
+        min-width: 260px;
+    }
+
+    .bs-phone {
+        width: 150px;
+        min-height: 300px;
+        border-width: 6px;
+        border-radius: 24px;
+    }
+
+    .bs-phone-notch {
+        width: 50px;
+        height: 12px;
+    }
+
+    .bs-arc--3 {
+        width: 280px;
+        height: 280px;
+    }
+
+    .bs-arc--2 {
+        width: 200px;
+        height: 200px;
+    }
+
+    .bs-arc--1 {
+        width: 120px;
+        height: 120px;
+    }
+
+    .bs-mini-card {
+        width: 85px;
+        padding: 5px 7px;
+        border-radius: 8px;
+    }
+
+    .bs-mini-title {
+        font-size: 7px;
+    }
+
+    .bs-mini-label {
+        font-size: 7px;
+    }
+
+    .bs-mini-line {
+        height: 3px;
+    }
+
+    .bs-dot {
+        width: 5px;
+        height: 5px;
+    }
+
+    .bs-float--tl1 {
+        top: 5%;
+        left: 2%;
+    }
+
+    .bs-float--tl2 {
+        display: none;
+    }
+
+    .bs-float--tr1 {
+        top: 5%;
+        right: 2%;
+    }
+
+    .bs-float--tr2 {
+        display: none;
+    }
+
+    .bs-float--ml {
+        top: 40%;
+        left: 0%;
+    }
+
+    .bs-float--ml2 {
+        bottom: 8%;
+        left: 2%;
+    }
+
+    .bs-float--mr1 {
+        width: 95px;
+        top: 28%;
+        right: 0%;
+    }
+
+    .bs-float--bl1 {
+        display: none;
+    }
+
+    .bs-float--bl2 {
+        display: none;
+    }
+
+    .bs-float--br1 {
+        bottom: 20%;
+        right: 0%;
+    }
+
+    .bs-float--br2 {
+        bottom: 6%;
+        right: 2%;
+    }
+}
+
+/* --- Small Mobile (max 360px) --- */
+@media (max-width: 360px) {
+    .bs-section {
+        padding: 24px 12px;
+        margin: 12px 6px;
+    }
+
+    .bs-title {
+        font-size: 20px;
+    }
+
+    .bs-subtitle {
+        font-size: 12px;
+    }
+
+    .bs-right {
+        min-height: 300px;
+        min-width: 240px;
+    }
+
+    .bs-phone {
+        width: 130px;
+        min-height: 260px;
+        border-width: 5px;
+        border-radius: 20px;
+    }
+
+    .bs-phone-notch {
+        width: 44px;
+        height: 10px;
+        border-radius: 0 0 8px 8px;
+    }
+
+    .bs-phone-screen {
+        padding: 8px 8px 10px;
+        min-height: 240px;
+    }
+
+    .bs-avatar-img {
+        width: 28px;
+        height: 28px;
+        font-size: 9px;
+    }
+
+    .bs-profile-name {
+        font-size: 8px;
+    }
+
+    .bs-phone-section-label {
+        font-size: 7px;
+    }
+
+    .bs-phone-text {
+        font-size: 7px;
+    }
+
+    .bs-gallery-item {
+        height: 30px;
+    }
+
+    .bs-arc--3 {
+        width: 240px;
+        height: 240px;
+    }
+
+    .bs-arc--2 {
+        width: 170px;
+        height: 170px;
+    }
+
+    .bs-arc--1 {
+        width: 100px;
+        height: 100px;
+    }
+
+    .bs-mini-card {
+        width: 75px;
+        padding: 4px 6px;
+        border-radius: 6px;
+    }
+
+    .bs-mini-title {
+        font-size: 6px;
+    }
+
+    .bs-mini-label {
+        font-size: 6px;
+    }
+
+    .bs-float--tl1 {
+        top: 4%;
+        left: 0%;
+    }
+
+    .bs-float--tr1 {
+        top: 4%;
+        right: 0%;
+    }
+
+    .bs-float--ml {
+        display: none;
+    }
+
+    .bs-float--ml2 {
+        bottom: 6%;
+        left: 0%;
+    }
+
+    .bs-float--mr1 {
+        width: 80px;
+        top: 26%;
+        right: 0%;
+    }
+
+    .bs-float--br1 {
+        bottom: 18%;
+        right: 0%;
+    }
+
+    .bs-float--br2 {
+        display: none;
+    }
+}

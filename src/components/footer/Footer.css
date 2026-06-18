@@ -1,0 +1,261 @@
+/* ═══════════════════════════════════════════
+   Footer Component Styles
+   ═══════════════════════════════════════════ */
+
+/* ---------- Newsletter / CTA Strip ---------- */
+.footer-cta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px 80px;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.footer-cta__text {
+    color: #131313;
+    font-size: 26px;
+    font-style: normal;
+    font-weight: 510;
+    line-height: 36px;
+    max-width: 320px;
+}
+
+.footer-cta__form {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.footer-cta__input-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid #d1d5db;
+    border-radius: 999px;
+    padding: 12px 20px;
+    background: #fff;
+    min-width: 280px;
+}
+
+.footer-cta__input-wrapper svg {
+    flex-shrink: 0;
+    color: #9ca3af;
+}
+
+.footer-cta__input {
+    border: none;
+    outline: none;
+    font-size: 15px;
+    color: #111;
+    background: transparent;
+    width: 100%;
+}
+
+.footer-cta__input::placeholder {
+    color: #9ca3af;
+}
+
+.footer-cta__subscribe-btn {
+    padding: 12px 28px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #fff;
+    border-radius: 60px;
+    background: var(--Primary-SuperBae-Website, linear-gradient(98deg, #D14E9A 14%, #FF566D 73.56%));
+    box-shadow: 0 -4px 4px 0 rgba(255, 255, 255, 0.20) inset, 0 8px 25px 0 rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    white-space: nowrap;
+}
+
+.footer-cta__subscribe-btn:hover {
+    transform: scale(1.04);
+    box-shadow: 0 6px 20px rgba(255, 86, 109, 0.35);
+}
+
+/* ---------- Main Footer Body ---------- */
+.footer-main {
+    display: flex;
+    justify-content: space-between;
+    padding: 48px 80px;
+    border-bottom: 1px solid #e5e5e5;
+    gap: 60px;
+}
+
+.footer-brand {
+    max-width: 320px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.footer-brand__logo {
+    width: 120px;
+    height: auto;
+}
+
+.footer-brand__description {
+    font-size: 14px;
+    color: #6b7280;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.footer-info {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+}
+
+.footer-nav {
+    display: flex;
+    gap: 36px;
+    flex-wrap: wrap;
+}
+
+.footer-nav__link {
+    font-size: 15px;
+    font-weight: 500;
+    color: #111;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.footer-nav__link:hover {
+    color: #d14e9a;
+}
+
+.footer-contact {
+    display: flex;
+    flex-direction: column;
+    color: #131313;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 510;
+    line-height: normal;
+    gap: 4px;
+}
+
+.footer-contact__row {
+    display: flex;
+    gap: 32px;
+    font-size: 14px;
+    color: #374151;
+    flex-wrap: wrap;
+}
+
+.footer-contact__item {
+    white-space: nowrap;
+}
+
+.footer-contact__address {
+    font-size: 14px;
+    color: #374151;
+}
+
+.footer-legal {
+    display: flex;
+    gap: 28px;
+}
+
+.footer-legal__link {
+    font-size: 14px;
+    color: #374151;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.footer-legal__link:hover {
+    /* color: #d14e9a; */
+    background: var(--Primary-SuperBae-Website, linear-gradient(98deg, #D14E9A 14%, #FF566D 73.56%));
+}
+
+/* ---------- Bottom Bar ---------- */
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 80px;
+}
+
+.footer-bottom__copyright {
+    color: #131313;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 28px;
+}
+
+.footer-bottom__socials {
+    display: flex;
+    gap: 12px;
+}
+
+.footer-bottom__social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #1f2937;
+    color: #fff;
+    text-decoration: none;
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.footer-bottom__social-link:hover {
+    transform: scale(1.1);
+    background: #d14e9a;
+}
+
+.footer-bottom__social-link svg {
+    width: 16px;
+    height: 16px;
+    fill: currentColor;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+    .footer-cta {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 24px;
+        padding: 32px 24px;
+    }
+
+    .footer-cta__form {
+        width: 100%;
+    }
+
+    .footer-cta__input-wrapper {
+        min-width: 0;
+        flex: 1;
+    }
+
+    .footer-main {
+        flex-direction: column;
+        padding: 36px 24px;
+        gap: 36px;
+    }
+
+    .footer-brand {
+        max-width: 100%;
+    }
+
+    .footer-nav {
+        gap: 20px;
+    }
+
+    .footer-contact__row {
+        flex-direction: column;
+        gap: 4px;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        gap: 20px;
+        padding: 24px;
+        text-align: center;
+    }
+}

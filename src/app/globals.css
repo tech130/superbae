@@ -1,0 +1,63 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --background--primary: #f8f9fa;
+    --text--primary: #1f2025;
+    --text-selection--background: #ffcc00;
+    --text-selection--text: #1f2025;
+  }
+
+  html {
+    interpolate-size: allow-keywords;
+    background-color: var(--background--primary);
+  }
+
+  body {
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overscroll-behavior-y: none;
+    scrollbar-width: none !important;
+  }
+
+  ::selection {
+    background: var(--text-selection--background);
+    color: var(--text-selection--text);
+  }
+
+  .u-clamp-1,
+  .u-clamp-2,
+  .u-clamp-3 {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: clip;
+  }
+
+  .u-clamp-1 {
+    -webkit-line-clamp: 1;
+  }
+
+  .u-clamp-2 {
+    -webkit-line-clamp: 2;
+  }
+
+  .u-clamp-3 {
+    -webkit-line-clamp: 3;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center gap-2 px-6 py-3 rounded-full bg-black text-white font-medium transition-all hover:scale-105;
+  }
+
+  .btn-highlight {
+    @apply absolute inset-0 rounded-full bg-white/10 opacity-0 transition-opacity duration-300;
+  }
+
+  .btn:hover .btn-highlight {
+    @apply opacity-100;
+  }
+
+  /* ... many more component classes */
+}

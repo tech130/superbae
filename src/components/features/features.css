@@ -1,0 +1,117 @@
+.features-section {
+    padding: 40px 20px 40px;
+    background-color: #ffffff;
+    text-align: center;
+}
+
+.features-header {
+    padding: 60px 0 60px 0;
+}
+
+.features-title {
+    color: #131313;
+    text-align: center;
+    font-size: 52px;
+    font-style: normal;
+    font-weight: 590;
+    line-height: 64px;
+}
+
+
+.features-subtitle {
+    color: #757577;
+    text-align: center;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 31.2px;
+}
+
+.features-grid {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+}
+
+.feature-column {
+    flex: 1;
+    min-width: 300px;
+    max-width: 350px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.feature-title {
+    color: #131313;
+    text-align: center;
+    font-size: 34px;
+    font-style: normal;
+    font-weight: 590;
+    line-height: 40px;
+    letter-spacing: -0.5px;
+}
+
+.feature-description {
+    color: #757577;
+    text-align: center;
+    font-size: 22px;
+    font-style: normal;
+    text-align: center;
+    font-weight: 400;
+    line-height: 31.2px;
+}
+
+.feature-image-wrapper {
+    width: 100%;
+    display: flex;
+    margin-top: auto;
+    padding-top: 30px;
+    justify-content: center;
+    align-items: center;
+}
+
+.feature-image {
+    width: 100%;
+    max-width: 280px;
+    height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 10px 25px rgba(0, 0, 0, 0.08));
+}
+
+@media (max-width: 991px) {
+    .features-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .feature-description {
+        height: auto;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .features-title {
+        font-size: 30px;
+        line-height: 38px;
+    }
+
+    .features-subtitle {
+        font-size: 18px;
+        line-height: 26px;
+    }
+
+    .feature-title {
+        font-size: 28px;
+        line-height: 34px;
+    }
+
+    .feature-description {
+        font-size: 18px;
+        line-height: 26px;
+    }
+}

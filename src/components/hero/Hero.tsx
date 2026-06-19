@@ -2,10 +2,85 @@
 
 import React, { useState, useEffect } from "react";
 import './hero.css'
+import { useCurrency } from '@/context/CurrencyContext';
+import OtpModal from '@/components/otp/OtpModal';
 
 const Hero: React.FC = () => {
     const [rotation, setRotation] = useState(0);
+    const [showOtp, setShowOtp] = useState(false);
+    const { getPrice } = useCurrency();
+    const loadScript = (src: string) => {
+        return new Promise((resolve) => {
+            const script = document.createElement("script");
+            script.src = src;
 
+            script.onload = () => {
+                resolve(true);
+            };
+
+            script.onerror = () => {
+                resolve(false);
+            };
+
+            document.body.appendChild(script);
+        });
+    };
+
+    const handlePayment = async () => {
+
+        const res = await loadScript(
+            "https://checkout.razorpay.com/v1/checkout.js"
+        );
+
+        if (!res) {
+            alert("Razorpay SDK failed to load");
+            return;
+        }
+
+        // Create order
+        const orderData = await fetch("/api/create-order", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                amount: 2500,
+            }),
+        });
+
+        const order = await orderData.json();
+
+        const options = {
+            key: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID,
+            amount: order.amount,
+            currency: order.currency,
+            name: "My Store",
+            description: "Test Transaction",
+            order_id: order.id,
+
+            handler: async function (response: Record<string, unknown>) {
+                alert("Payment Successful");
+
+                console.log(response);
+            },
+
+            prefill: {
+                name: "John Doe",
+                email: "john@example.com",
+                contact: "9999999999",
+            },
+
+            theme: {
+                color: "#3399cc",
+            },
+        };
+
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        const paymentObject = new (window as any).Razorpay(options);
+
+        paymentObject.open();
+
+    };
     useEffect(() => {
         const handleScroll = () => {
             // Adjust the multiplier (e.g., 0.05) to control rotation speed
@@ -18,6 +93,7 @@ const Hero: React.FC = () => {
     }, []);
 
     return (
+        <>
         <section className="hero_section section-3" style={{ backgroundColor: '#ffffff' }}>
 
 
@@ -32,7 +108,7 @@ const Hero: React.FC = () => {
                             <div className="u-vflex-center-top u-vgap-16 u-align-center u-w-100">
                                 <div className="row row-center-horizontal">
                                     <div className="col-12">
-                                        <h1 className="h1" style={{ fontSize: '48px' }}>
+                                        <h1 className="h1">
                                             The <span className="gradient-text">Ultimate</span> Digital Planner<br />  for Women
                                         </h1>
                                     </div>
@@ -74,8 +150,8 @@ const Hero: React.FC = () => {
                                     <span>Get it on</span>
                                 </div>
 
-                                <button className="join-btn">
-                                    Join for ₹2500
+                                <button onClick={() => setShowOtp(true)} className="join-btn">
+                                    Join for {getPrice('join')}
                                 </button>
                             </div>
 
@@ -114,6 +190,17 @@ const Hero: React.FC = () => {
             </div>
 
         </section>
+
+            {/* OTP Verification Modal */}
+            <OtpModal
+                isOpen={showOtp}
+                onClose={() => setShowOtp(false)}
+                onVerified={() => {
+                    setShowOtp(false);
+                    handlePayment();
+                }}
+            />
+        </>
     );
 };
 

@@ -166,8 +166,8 @@
 }
 
 .footer-legal__link:hover {
-    /* color: #d14e9a; */
-    background: var(--Primary-SuperBae-Website, linear-gradient(98deg, #D14E9A 14%, #FF566D 73.56%));
+    color: #d14e9a;
+
 }
 
 /* ---------- Bottom Bar ---------- */

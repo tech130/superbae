@@ -1,0 +1,488 @@
+/* ========== OTP Modal Overlay ========== */
+.otp-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    animation: otpOverlayIn 0.25s ease;
+    padding: 20px;
+}
+
+@keyframes otpOverlayIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* ========== Modal Card ========== */
+.otp-modal {
+    background: #fff;
+    border-radius: 24px;
+    width: 100%;
+    max-width: 400px;
+    padding: 40px 32px;
+    position: relative;
+    box-shadow: 0 24px 80px rgba(0, 0, 0, 0.15),
+        0 4px 16px rgba(0, 0, 0, 0.08);
+    animation: otpModalIn 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes otpModalIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9) translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+/* Close button */
+.otp-modal__close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #999;
+    padding: 6px;
+    border-radius: 50%;
+    transition: background 0.2s ease, color 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.otp-modal__close:hover {
+    background: #f3f3f3;
+    color: #333;
+}
+
+/* ========== Step Content ========== */
+.otp-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 8px;
+}
+
+.otp-modal__icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #fce4f1, #f9d0e8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 8px;
+}
+
+.otp-modal__title {
+    font-size: 22px;
+    font-weight: 700;
+    color: #111;
+    margin: 0;
+    letter-spacing: -0.02em;
+}
+
+.otp-modal__subtitle {
+    font-size: 14px;
+    color: #777;
+    margin: 0 0 16px;
+    line-height: 1.4;
+}
+
+/* ========== Phone Input ========== */
+.otp-phone-input {
+    display: flex;
+    align-items: center;
+    border: 2px solid #e8e8e8;
+    border-radius: 14px;
+    padding: 4px;
+    width: 100%;
+    transition: border-color 0.2s ease;
+    background: #fafafa;
+    margin-bottom: 16px;
+}
+
+.otp-phone-input:focus-within {
+    border-color: #d14e9a;
+    background: #fff;
+}
+
+.otp-phone-input__prefix {
+    font-size: 15px;
+    font-weight: 600;
+    color: #333;
+    padding: 12px 10px 12px 14px;
+    border-right: 1px solid #e8e8e8;
+    flex-shrink: 0;
+    user-select: none;
+}
+
+.otp-phone-input__field {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-size: 15px;
+    font-family: inherit;
+    padding: 12px 14px;
+    background: transparent;
+    color: #111;
+    letter-spacing: 0.05em;
+}
+
+.otp-phone-input__field::placeholder {
+    color: #bbb;
+    letter-spacing: 0;
+}
+
+/* ========== OTP Digit Inputs ========== */
+.otp-digits {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 20px;
+    justify-content: center;
+}
+
+.otp-digit {
+    width: 48px;
+    height: 56px;
+    border: 2px solid #e8e8e8;
+    border-radius: 12px;
+    text-align: center;
+    font-size: 22px;
+    font-weight: 700;
+    font-family: inherit;
+    color: #111;
+    background: #fafafa;
+    outline: none;
+    transition: border-color 0.2s ease, background 0.2s ease, transform 0.15s ease;
+    caret-color: #d14e9a;
+}
+
+.otp-digit:focus {
+    border-color: #d14e9a;
+    background: #fff;
+    transform: scale(1.05);
+    box-shadow: 0 0 0 3px rgba(209, 78, 154, 0.12);
+}
+
+.otp-digit--filled {
+    border-color: #d14e9a;
+    background: #fdf0f6;
+}
+
+/* ========== Buttons ========== */
+.otp-btn {
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 600;
+    border: none;
+    border-radius: 14px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-height: 50px;
+}
+
+.otp-btn--primary {
+    width: 100%;
+    background: linear-gradient(98deg, #d14e9a 14%, #ff566d 73.56%);
+    color: #fff;
+    padding: 14px 24px;
+    box-shadow: 0 4px 16px rgba(209, 78, 154, 0.3);
+}
+
+.otp-btn--primary:hover:not(:disabled) {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 24px rgba(209, 78, 154, 0.4);
+}
+
+.otp-btn--primary:active:not(:disabled) {
+    transform: translateY(0);
+}
+
+.otp-btn--disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+.otp-btn--text {
+    background: none;
+    color: #999;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 8px 16px;
+}
+
+.otp-btn--text:hover:not(:disabled) {
+    color: #d14e9a;
+}
+
+/* Spinner */
+.otp-btn__spinner {
+    width: 20px;
+    height: 20px;
+    border: 2.5px solid rgba(255, 255, 255, 0.3);
+    border-top-color: #fff;
+    border-radius: 50%;
+    animation: otpSpin 0.7s linear infinite;
+}
+
+@keyframes otpSpin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Verifying state */
+.otp-verifying {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    color: #d14e9a;
+    margin-bottom: 8px;
+}
+
+.otp-verifying .otp-btn__spinner {
+    border-color: rgba(209, 78, 154, 0.2);
+    border-top-color: #d14e9a;
+    width: 16px;
+    height: 16px;
+}
+
+/* ========== Success Animation ========== */
+.otp-step--success {
+    padding: 20px 0;
+}
+
+.otp-success {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Ring burst */
+.otp-success__ring {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 3px solid #d14e9a;
+    animation: otpRingBurst 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    opacity: 0;
+}
+
+@keyframes otpRingBurst {
+    0% {
+        transform: scale(0.5);
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.6;
+    }
+
+    100% {
+        transform: scale(1.6);
+        opacity: 0;
+    }
+}
+
+/* Pink circle with checkmark */
+.otp-success__circle {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #d14e9a, #ff566d);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: otpCirclePop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    box-shadow: 0 8px 32px rgba(209, 78, 154, 0.4);
+    transform: scale(0);
+}
+
+@keyframes otpCirclePop {
+    0% {
+        transform: scale(0);
+    }
+
+    60% {
+        transform: scale(1.15);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.otp-success__check {
+    width: 40px;
+    height: 40px;
+}
+
+.otp-success__check-path {
+    stroke-dasharray: 50;
+    stroke-dashoffset: 50;
+    animation: otpCheckDraw 0.4s ease 0.35s forwards;
+}
+
+@keyframes otpCheckDraw {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+/* Sparkle particles */
+.otp-sparkle {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #d14e9a;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: otpSparkleBurst 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+    animation-delay: var(--sparkle-delay);
+    opacity: 0;
+}
+
+.otp-sparkle:nth-child(odd) {
+    background: #ff566d;
+    width: 4px;
+    height: 4px;
+}
+
+.otp-sparkle:nth-child(3n) {
+    background: #ffb6d5;
+    width: 5px;
+    height: 5px;
+}
+
+@keyframes otpSparkleBurst {
+    0% {
+        transform: translate(-50%, -50%) rotate(var(--sparkle-angle)) translateY(0);
+        opacity: 1;
+    }
+
+    30% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translate(-50%, -50%) rotate(var(--sparkle-angle)) translateY(calc(var(--sparkle-distance) * -1));
+        opacity: 0;
+    }
+}
+
+/* Success title animation */
+.otp-modal__title--success {
+    animation: otpTitleFade 0.5s ease 0.5s both;
+    background: linear-gradient(135deg, #d14e9a, #ff566d);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-size: 26px;
+}
+
+@keyframes otpTitleFade {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.otp-step--success .otp-modal__subtitle {
+    animation: otpTitleFade 0.5s ease 0.7s both;
+}
+
+/* ========== Error Message ========== */
+.otp-error {
+    color: #e53935;
+    font-size: 13px;
+    font-weight: 500;
+    margin: -8px 0 12px;
+    padding: 8px 14px;
+    background: #fef2f2;
+    border-radius: 10px;
+    width: 100%;
+    text-align: center;
+    animation: otpShake 0.4s ease;
+}
+
+@keyframes otpShake {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-6px);
+    }
+
+    50% {
+        transform: translateX(6px);
+    }
+
+    75% {
+        transform: translateX(-4px);
+    }
+}
+
+/* Action buttons row */
+.otp-step__actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    gap: 8px;
+}
+
+/* ========== Mobile Responsive ========== */
+@media (max-width: 480px) {
+    .otp-modal {
+        padding: 32px 20px;
+        border-radius: 20px;
+    }
+
+    .otp-digit {
+        width: 42px;
+        height: 50px;
+        font-size: 20px;
+    }
+
+    .otp-digits {
+        gap: 6px;
+    }
+}

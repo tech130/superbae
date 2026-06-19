@@ -1,114 +1,82 @@
-import React from 'react';
+'use client';
+
+import React, { useState, useEffect, useCallback } from 'react';
 import './allinone.css';
 
+const CARDS = [
+    { src: '/images/allinone/card-1.png', alt: 'Tracker' },
+    { src: '/images/allinone/card-2.png', alt: 'Club' },
+    { src: '/images/allinone/card-3.png', alt: 'Journal' },
+    { src: '/images/allinone/card-4.png', alt: 'Wardrobe' },
+    { src: '/images/allinone/card-5.png', alt: 'Gifitable' },
+];
+
 const AllInOneApp: React.FC = () => {
+    const [activeIndex, setActiveIndex] = useState(0);
+    const [isPaused, setIsPaused] = useState(false);
+
+    const advance = useCallback(() => {
+        setActiveIndex((prev) => (prev + 1) % CARDS.length);
+    }, []);
+
+    useEffect(() => {
+        if (isPaused) return;
+        const interval = setInterval(advance, 2500);
+        return () => clearInterval(interval);
+    }, [isPaused, advance]);
+
+    const getCardIndex = (offset: number) => {
+        return (activeIndex + offset + CARDS.length) % CARDS.length;
+    };
+
+    const positionClass = (offset: number) => {
+        switch (offset) {
+            case -1:
+                return 'aio-fan-card--left';
+            case 0:
+                return 'aio-fan-card--center';
+            case 1:
+                return 'aio-fan-card--right';
+            default:
+                return '';
+        }
+    };
+
     return (
-        <section className="aio-section">
+        <section className="aio-section" id="all-in-one">
             <h2 className="aio-title">All in one App</h2>
 
-            <div className="aio-cards">
-                {/* ===== CLUB CARD ===== */}
-                <div className="aio-card aio-card--club">
-                    <img
-                        src="/images/club-card-bg.png"
-                        alt="Club - Group of friends"
-                        className="aio-card-bg"
-                    />
-                    <div className="aio-card-overlay"></div>
-                    <div className="aio-card-label">Club</div>
+            <div
+                className="aio-fan-container"
+                onMouseEnter={() => setIsPaused(true)}
+                onMouseLeave={() => setIsPaused(false)}
+            >
+                {[-1, 0, 1].map((offset) => {
+                    const index = getCardIndex(offset);
+                    const card = CARDS[index];
 
-                    {/* Music Event Mini-card */}
-                    <div className="aio-club-event">
-                        <img
-                            src="/images/music-event-thumb.png"
-                            alt="Music Night"
-                            className="aio-club-event-img"
-                        />
-                        <div className="aio-club-event-info">
-                            <span className="aio-club-event-tag">Music</span>
-                            <span className="aio-club-event-heart">♡</span>
-                            <div className="aio-club-event-title">Music Night</div>
-                            <div className="aio-club-event-meta">
-                                <span>📍 Mumbai</span>
-                                <span>📅 17 Mar</span>
-                            </div>
+                    return (
+                        <div
+                            className={`aio-fan-card ${positionClass(offset)}`}
+                            key={`pos-${offset}`}
+                            onClick={() => {
+                                if (offset !== 0) {
+                                    setActiveIndex(index);
+                                }
+                            }}
+                        >
+                            <img
+                                src={card.src}
+                                alt={card.alt}
+                                className="aio-fan-card-img"
+                                draggable={false}
+                            />
                         </div>
-                    </div>
-
-                    {/* Bottom Bar */}
-                    <div className="aio-club-bottom">
-                        <div className="aio-club-bottom-avatar">
-                            <span className="aio-club-bottom-avatar-dot">👤</span>
-                        </div>
-                        <span className="aio-club-bottom-text">Best brunch spots in Chennai?</span>
-                        <div className="aio-club-bottom-plus">+</div>
-                    </div>
-                </div>
-
-                {/* ===== JOURNAL CARD ===== */}
-                <div className="aio-card aio-card--journal">
-                    <img
-                        src="/images/journal-card-bg.png"
-                        alt="Journal - Woman with phone"
-                        className="aio-card-bg"
-                    />
-                    <div className="aio-card-overlay"></div>
-                    <div className="aio-card-label">Journal</div>
-
-                    {/* Journal Entry Card */}
-                    <div className="aio-journal-entry">
-                        <div className="aio-journal-time">
-                            <span className="aio-journal-dot"></span>
-                            11:50
-                        </div>
-                        <div className="aio-journal-heading">
-                            A Day of Growth And Gratitude
-                        </div>
-                        <div className="aio-journal-text">
-                            I journaled about surfing last night, whenever that
-                            happens, I know it&apos;s going to have a great day on
-                            the water. Small rituals...
-                        </div>
-                        <div className="aio-journal-thumbs">
-                            <div className="aio-journal-thumb" style={{ background: 'linear-gradient(135deg, #d4a574, #8B6914)' }}></div>
-                            <div className="aio-journal-thumb" style={{ background: 'linear-gradient(135deg, #e8c9a0, #c4956a)' }}></div>
-                            <div className="aio-journal-thumb" style={{ background: 'linear-gradient(135deg, #a0c4e8, #6a8fb4)' }}></div>
-                        </div>
-                    </div>
-
-                    {/* Detail card at bottom */}
-                    <div className="aio-journal-detail">
-                        <div className="aio-journal-detail-icon">📝</div>
-                        <div>
-                            <div className="aio-journal-detail-label">File of a lifetime</div>
-                            <div className="aio-journal-detail-title">Consultant</div>
-                        </div>
-                    </div>
-                </div>
-
-                {/* ===== WARDROBE CARD ===== */}
-                <div className="aio-card aio-card--wardrobe">
-                    <img
-                        src="/images/wardrobe-card-bg.png"
-                        alt="Wardrobe - Fashion"
-                        className="aio-card-bg"
-                    />
-                    <div className="aio-card-overlay"></div>
-                    <div className="aio-card-label">Wardrobe</div>
-
-                    {/* Floating wardrobe items */}
-                    <div className="aio-wardrobe-items">
-                        <div className="aio-wardrobe-price">00</div>
-                        <div style={{ marginTop: '48px' }}></div>
-                        <div className="aio-wardrobe-item">👡</div>
-                        <div className="aio-wardrobe-item--circle" style={{ background: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                            <span style={{ fontSize: '24px' }}>👗</span>
-                        </div>
-                        <div className="aio-wardrobe-item">👜</div>
-                        <div className="aio-wardrobe-item">💍</div>
-                    </div>
-                </div>
+                    );
+                })}
             </div>
+
+
         </section>
     );
 };

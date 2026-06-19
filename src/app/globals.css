@@ -4,8 +4,6 @@
   :root {
     --background--primary: #f8f9fa;
     --text--primary: #1f2025;
-    --text-selection--background: #ffcc00;
-    --text-selection--text: #1f2025;
   }
 
   html {
@@ -17,13 +15,22 @@
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
     overscroll-behavior-y: none;
-    scrollbar-width: none !important;
   }
 
-  ::selection {
-    background: var(--text-selection--background);
-    color: var(--text-selection--text);
+  html,
+  body {
+    -ms-overflow-style: none;
+    /* IE/old Edge */
+    scrollbar-width: none;
+    /* Firefox */
   }
+
+  html::-webkit-scrollbar,
+  body::-webkit-scrollbar {
+    display: none;
+    /* Chrome, Safari, Edge */
+  }
+
 
   .u-clamp-1,
   .u-clamp-2,

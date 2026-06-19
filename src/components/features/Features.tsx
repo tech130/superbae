@@ -18,21 +18,21 @@ const Features: React.FC = () => {
             title: "Club",
             description:
                 "Discover events, make friends, and grow through communities you Love",
-            imageSrc: "/images/mobile/iphone-15-pro.png",
+            imageSrc: "/images/mobile/iPhone-15-pro.png",
         },
         {
             id: "journal",
             title: "Journal",
             description:
                 "Record your memories, reflections, and daily moments in one place",
-            imageSrc: "/images/mobile/iphone-15-pro-1.png",
+            imageSrc: "/images/mobile/iPhone-15-pro-1.png",
         },
         {
             id: "wardrobe",
             title: "Wardrobe",
             description:
                 "Organize your outfits, and always know exactly what to Wear",
-            imageSrc: "/images/mobile/iphone-15-pro-2.png",
+            imageSrc: "/images/mobile/iPhone-15-pro-2.png",
         },
     ];
 

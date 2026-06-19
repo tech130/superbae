@@ -1,5 +1,6 @@
 import React from 'react';
 import './features.css';
+import Image from 'next/image';
 
 const Features: React.FC = () => {
     const featuresData = [
@@ -36,7 +37,7 @@ const Features: React.FC = () => {
                         <h3 className="feature-title">{feature.title}</h3>
                         <p className="feature-description">{feature.description}</p>
                         <div className="feature-image-wrapper">
-                            <img
+                            <Image
                                 src={feature.imageSrc}
                                 alt={`${feature.title} feature`}
                                 className="feature-image"

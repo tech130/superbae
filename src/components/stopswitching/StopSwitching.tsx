@@ -1,5 +1,6 @@
 import React from 'react';
 import './StopSwitching.css';
+import Image from 'next/image';
 
 const StopSwitching: React.FC = () => {
     return (
@@ -25,8 +26,8 @@ const StopSwitching: React.FC = () => {
             </div>
 
             {/* ---- Product Collage ---- */}
-            <div className="ss-collage">
-                {/* Tumbler - far left */}
+            {/* <div className="ss-collage">
+               
                 <div className="ss-product ss-product--tumbler">
                     <img
                         src="/images/lifestyle/tumbler.png"
@@ -35,7 +36,7 @@ const StopSwitching: React.FC = () => {
                     />
                 </div>
 
-                {/* Sunglasses - top left area */}
+                
                 <div className="ss-product ss-product--sunglasses">
                     <img
                         src="/images/lifestyle/sunglasses.png"
@@ -44,7 +45,7 @@ const StopSwitching: React.FC = () => {
                     />
                 </div>
 
-                {/* Lipstick - between tumbler and scrunchie */}
+                
                 <div className="ss-product ss-product--lipstick">
                     <img
                         src="/images/lifestyle/lipstick.png"
@@ -53,7 +54,7 @@ const StopSwitching: React.FC = () => {
                     />
                 </div>
 
-                {/* Scrunchie - bottom left */}
+              
                 <div className="ss-product ss-product--scrunchie">
                     <img
                         src="/images/lifestyle/scrunchie.png"
@@ -62,7 +63,7 @@ const StopSwitching: React.FC = () => {
                     />
                 </div>
 
-                {/* iPhone - center */}
+             
                 <div className="ss-product ss-product--iphone">
                     <img
                         src="/images/lifestyle/iphone.png"
@@ -71,7 +72,7 @@ const StopSwitching: React.FC = () => {
                     />
                 </div>
 
-                {/* Apple Watch - right of center (placeholder) */}
+               
                 <div className="ss-product ss-product--watch">
                     <img
                         src="/images/lifestyle/watch.png"
@@ -80,7 +81,7 @@ const StopSwitching: React.FC = () => {
                     />
                 </div>
 
-                {/* Sunscreen - top right (placeholder) */}
+               
                 <div className="ss-product ss-product--sunscreen">
                     <img
                         src="/images/lifestyle/sunscreen.png"
@@ -89,7 +90,7 @@ const StopSwitching: React.FC = () => {
                     />
                 </div>
 
-                {/* Perfume - right (placeholder) */}
+               
                 <div className="ss-product ss-product--perfume">
                     <img
                         src="/images/lifestyle/perfume.png"
@@ -98,7 +99,7 @@ const StopSwitching: React.FC = () => {
                     />
                 </div>
 
-                {/* Headphones - far right top (placeholder) */}
+               
                 <div className="ss-product ss-product--headphones">
                     <img
                         src="/images/lifestyle/headphone.png"
@@ -106,7 +107,19 @@ const StopSwitching: React.FC = () => {
                         loading="lazy"
                     />
                 </div>
+            </div> */}
+
+            <div >
+                <Image
+                    src="/images/lifestyle/product-banner.png"
+                    alt="Lifestyle product collage"
+                    width={1400}
+                    height={900}
+                    priority
+                    className="ss-collage-img"
+                />
             </div>
+
         </section>
     );
 };

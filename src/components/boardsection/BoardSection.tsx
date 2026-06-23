@@ -3,30 +3,36 @@ import './boardsection.css';
 
 const BoardSection: React.FC = () => {
     const floatingCards = [
-        { id: 'c1', className: 'bs-float bs-float--tl1', title: 'Riding a bike...', lines: 3 },
-        { id: 'c2', className: 'bs-float bs-float--tl2', title: 'Riding a bike...', lines: 2 },
-        { id: 'c3', className: 'bs-float bs-float--tr1', title: 'Riding a bike...', lines: 2 },
-        { id: 'c4', className: 'bs-float bs-float--tr2', title: 'Riding a bike...', lines: 3 },
-        { id: 'c5', className: 'bs-float bs-float--ml', title: 'Rocket Board', lines: 2, label: 'Rocket Board' },
-        { id: 'c6', className: 'bs-float bs-float--ml2', title: 'Habit List', lines: 2, label: 'Habit List' },
-        { id: 'c7', className: 'bs-float bs-float--mr1', title: 'Inspiration Board', lines: 2, label: 'Inspiration Board' },
-        { id: 'c8', className: 'bs-float bs-float--bl1', title: 'Riding a bike...', lines: 3 },
-        { id: 'c9', className: 'bs-float bs-float--bl2', title: 'Adventure Board', lines: 2, label: 'Adventure Board' },
-        { id: 'c10', className: 'bs-float bs-float--br1', title: 'Future Goals', lines: 2, label: 'Future Goals' },
-        { id: 'c11', className: 'bs-float bs-float--br2', title: 'Riding a bike...', lines: 2 },
+        { id: 'c1', className: 'bs-float bs-float--tl1', title: 'Riding a bike...', content: 'Plan your goals & dreams', lines: 2 },
+        { id: 'c2', className: 'bs-float bs-float--tl2', title: 'Daily Journal', content: 'Capture your thoughts', lines: 2 },
+        { id: 'c3', className: 'bs-float bs-float--tr1', title: 'Track Progress', content: 'Stay on top of habits', lines: 2 },
+        { id: 'c4', className: 'bs-float bs-float--tr2', title: 'Vision Board', content: 'Visualise your future', lines: 2 },
+        { id: 'c5', className: 'bs-float bs-float--ml', label: 'Mood Board', content: 'Log how you feel every day', lines: 2 },
+        { id: 'c6', className: 'bs-float bs-float--ml2', label: 'Dream Board', content: 'Pin the life you are building', lines: 2 },
+        { id: 'c7', className: 'bs-float bs-float--mr1', label: 'Fantasy Board', content: 'Curate your wildest what-ifs', lines: 2 },
+        { id: 'c8', className: 'bs-float bs-float--bl1', label: 'Achievement Board', content: 'Celebrate every win you earn', lines: 2 },
+        { id: 'c9', className: 'bs-float bs-float--bl2', label: 'Idea Board', content: 'Spark & save brilliant ideas', lines: 2 },
+        { id: 'c10', className: 'bs-float bs-float--br1', title: 'Self Care', content: 'Small steps, big wins', lines: 2 },
+        { id: 'c11', className: 'bs-float bs-float--br2', title: 'Mood Check', content: 'How are you feeling today?', lines: 2 },
     ];
+
 
     return (
         <section className="bs-section">
             <div className="bs-inner">
                 {/* Left Text */}
                 <div className="bs-left">
-                    <h2 className="bs-title">Board Section</h2>
+                    <h2 className="bs-title">Shape Your Vision</h2>
                     <p className="bs-subtitle">
-                        Save What Inspires You Today And<br />
-                        Visualize What You're Building For<br />
-                        Tomorrow.
+                        Save inspirations, plan your goals, organize your dreams,
+                        <br />
+                        and curate everything that motivates you—
+                        <br />
+                        beautifully and privately.
                     </p>
+
+
+
                 </div>
 
                 {/* Right — Phone + Floating Cards */}
@@ -40,22 +46,22 @@ const BoardSection: React.FC = () => {
 
                     {/* Floating mini-cards */}
                     {floatingCards.map((card) => (
-                        <div key={card.id} className={`bs-mini-card ${card.className}`}>
-                            {card.label && (
+                        <div key={card.id} className={`bs-mini-card ${'className' in card ? card.className : ''}`}>
+                            {/* Label (purple heading) or title */}
+                            {'label' in card && card.label ? (
                                 <div className="bs-mini-label">{card.label}</div>
-                            )}
-                            {!card.label && (
+                            ) : (
                                 <div className="bs-mini-title">{card.title}</div>
                             )}
+                            {/* Subtitle text */}
+                            {'content' in card && card.content && (
+                                <div className="bs-mini-content">{card.content}</div>
+                            )}
+                            {/* Decorative line bars */}
                             <div className="bs-mini-lines">
                                 {Array.from({ length: card.lines }).map((_, i) => (
-                                    <div key={i} className="bs-mini-line" style={{ width: `${75 - i * 15}%` }}></div>
+                                    <div key={i} className="bs-mini-line" style={{ width: `${72 - i * 14}%` }}></div>
                                 ))}
-                            </div>
-                            <div className="bs-mini-dots">
-                                <span className="bs-dot bs-dot--red"></span>
-                                <span className="bs-dot bs-dot--blue"></span>
-                                <span className="bs-dot bs-dot--green"></span>
                             </div>
                         </div>
                     ))}

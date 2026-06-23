@@ -70,11 +70,16 @@ const Header: React.FC = () => {
         <nav className="navigation">
             <div className="nav_layout-2">
                 {/* Logo / Brand */}
-                <Link href="/" aria-current="page" className="nav_home w-inline-block">
+                <Link href="/" aria-current="page" className="nav_home w-inline-block" onClick={(e) => {
+                    if (window.location.pathname === '/') {
+                        e.preventDefault();
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                    }
+                }}>
                     <div className="nav_logo-container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100%' }}>
                         <div className="logo" style={{ display: 'flex', alignItems: 'center' }}>
                             <Image
-                                src="/logo-1.png"
+                                src="/logo.svg"
                                 alt="SnBsuper Logo"
                                 width={100}
                                 height={50}
@@ -90,9 +95,9 @@ const Header: React.FC = () => {
                 <div className="nav_main-wrapper">
                     <div className="nav_main">
                         <div className="nav_main-inner">
-                            <Link href="/app" className="navigation_link">App</Link>
-                            <Link href="/club" className="navigation_link">Club</Link>
-                            <Link href="/shop" className="navigation_link">Shop</Link>
+                            <Link href="/" className="navigation_link">App</Link>
+                            <Link href="/" className="navigation_link">Club</Link>
+                            <Link href="/" className="navigation_link">Shop</Link>
                         </div>
 
                         {/* Currency Dropdown */}

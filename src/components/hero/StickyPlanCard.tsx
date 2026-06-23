@@ -112,29 +112,29 @@ const StickyPlanCard: React.FC = () => {
 
     return (
         <>
-        <div
-            className="hero_sticky-plan-card"
-            style={{
-                opacity: isVisible ? 1 : 0,
-                visibility: isVisible ? 'visible' : 'hidden',
-                transition: 'opacity 0.3s ease, visibility 0.3s ease',
-                pointerEvents: isVisible ? 'auto' : 'none'
-            }}
-        >
-            <div className="plan-card-content">
-                <div className="plan-card-main">
-                    <div className="plan-card-info">
-                        <span className="plan-card-subtitle">Get My Plan</span>
-                        <span className="plan-card-price">{getPrice('plan')}</span>
+            <div
+                className="hero_sticky-plan-card"
+                style={{
+                    opacity: isVisible ? 1 : 0,
+                    visibility: isVisible ? 'visible' : 'hidden',
+                    transition: 'opacity 0.3s ease, visibility 0.3s ease',
+                    pointerEvents: isVisible ? 'auto' : 'none'
+                }}
+            >
+                <div className="plan-card-content">
+                    <div className="plan-card-main">
+                        <div className="plan-card-info">
+                            <span className="plan-card-subtitle">Get My Plan</span>
+                            <span className="plan-card-price">{getPrice('plan')}</span>
+                        </div>
+                        <button className="plan-card-btn" onClick={() => setShowOtp(true)}>Get Plan</button>
                     </div>
-                    <button className="plan-card-btn" onClick={() => setShowOtp(true)}>Get Plan</button>
-                </div>
-                <div className="plan-card-divider"></div>
-                <div className="plan-card-footer">
-                    100% money-back &middot; Live in 24 hrs &middot; 100% indexed
+                    <div className="plan-card-divider"></div>
+                    <div className="plan-card-footer">
+                        100% money-back &middot; Live in 24 hrs &middot; 100% indexed
+                    </div>
                 </div>
             </div>
-        </div>
 
             {/* OTP Verification Modal */}
             <OtpModal

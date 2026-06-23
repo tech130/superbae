@@ -17,7 +17,7 @@ const Features: React.FC = () => {
             id: "club",
             title: "Club",
             description:
-                "Discover events, make friends, and grow through communities you Love",
+                "Discover events, make friends, and grow through communities you love",
             imageSrc: "/images/mobile/iPhone-15-pro.png",
         },
         {
@@ -31,7 +31,7 @@ const Features: React.FC = () => {
             id: "wardrobe",
             title: "Wardrobe",
             description:
-                "Organize your outfits, and always know exactly what to Wear",
+                "Organize your outfits, and always know exactly what to wear",
             imageSrc: "/images/mobile/iPhone-15-pro-2.png",
         },
     ];

@@ -59,7 +59,7 @@
 
 .store-btn span {
     display: block;
-    font-size: 16px;
+    font-size: 12px;
     font-weight: 600;
     line-height: 1.2;
 }
@@ -193,13 +193,13 @@
 .hero-color-secondary {
     color: #747474;
     margin-bottom: 20px;
-    font-size: 24px;
+    font-size: 18px;
     font-weight: 500;
 }
 
 @media (max-width: 768px) {
     .hero_section .h1 {
-        font-size: 36px;
+        font-size: 48px;
     }
 
     .download-card {

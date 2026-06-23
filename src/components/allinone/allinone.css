@@ -3,120 +3,153 @@
     padding: 80px 0 0px;
     background: #ffffff;
     text-align: center;
-    overflow: hidden;
+    overflow: visible;
 }
 
 .aio-title {
     color: #000;
     word-break: break-word;
-    margin-bottom: 40px;
-    font-size: 48px;
+    font-size: 40px;
     font-weight: 700;
     line-height: 1.1;
+    margin-bottom: 40px;
 }
 
 /* ========== FAN / SPREAD LAYOUT ========== */
-
 .aio-fan-container {
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     justify-content: center;
     position: relative;
-    height: 520px;
-    max-width: 1100px;
+    height: 400px;
+    max-width: 1200px;
     margin: 0 auto;
     cursor: default;
 }
 
+/* Base card */
 .aio-fan-card {
     position: absolute;
-    width: 300px;
-    height: 460px;
+    width: 220px;
+    height: 430px;
     border-radius: 24px;
     overflow: hidden;
-    transition: all 0.99s cubic-bezier(0.23, 1, 0.32, 1);
-    cursor: pointer;
+    transition: all 0.75s cubic-bezier(0.23, 1, 0.32, 1);
     transform-origin: center bottom;
 }
 
-.aio-fan-card::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-radius: 24px;
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    pointer-events: none;
-}
-
-/* Center card — straight, largest, highest z */
-.aio-fan-card--center {
-    z-index: 3;
-    transform: translateX(0) translateY(-22px) rotate(0deg) scale(1);
-}
-
-/* Left card — tilted counter-clockwise, shifted up for arc */
-.aio-fan-card--left {
-    z-index: 2;
-    transform: translateX(-340px) translateY(-20px) rotate(-8deg) scale(0.92);
-}
-
-/* Right card — tilted clockwise, shifted up for arc */
-.aio-fan-card--right {
-    z-index: 2;
-    transform: translateX(340px) translateY(-20px) rotate(8deg) scale(0.92);
-}
-
-
-.aio-fan-card--center:hover {
-    transform: translateX(0) translateY(-12px) rotate(0) scale(1.03);
-}
-
-.aio-fan-card--left:hover {
-    transform: translateX(-340px) translateY(-24px) rotate(-8deg) scale(0.95);
-}
-
-.aio-fan-card--right:hover {
-    transform: translateX(340px) translateY(-24px) rotate(8deg) scale(0.95);
-}
-
-/* Card image */
 .aio-fan-card-img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     display: block;
     user-select: none;
     -webkit-user-drag: none;
 }
 
+/* ── 5 slot positions ─────────────────────────────── */
+
+/* Far left: big tilt left, lowest, peek from edge */
+.aio-card--far-left {
+    z-index: 1;
+    transform: translateX(-430px) translateY(77px) rotate(-18deg) scale(0.85);
+    opacity: 0.9;
+}
+
+/* Near left: mild tilt left, slightly lower */
+.aio-card--near-left {
+    z-index: 2;
+    transform: translateX(-220px) translateY(24px) rotate(-9deg) scale(0.93);
+    opacity: 1;
+}
+
+/* Center: upright, highest, largest */
+.aio-card--center {
+    z-index: 3;
+    transform: translateX(0px) translateY(0px) rotate(0deg) scale(1);
+    opacity: 1;
+}
+
+/* Near right: mild tilt right, slightly lower */
+.aio-card--near-right {
+    z-index: 2;
+    transform: translateX(220px) translateY(24px) rotate(9deg) scale(0.93);
+    opacity: 1;
+}
+
+/* Far right: big tilt right, lowest, peek from edge */
+.aio-card--far-right {
+    z-index: 1;
+    transform: translateX(430px) translateY(80px) rotate(18deg) scale(0.85);
+    opacity: 0.9;
+}
+
+/* ── Hover lifts removed ─────────────────────────── */
 
 
 /* ===== RESPONSIVE ===== */
-@media (max-width: 1024px) {
+@media (max-width: 1200px) {
     .aio-fan-container {
-        height: 440px;
+        height: 500px;
     }
 
     .aio-fan-card {
-        width: 260px;
-        height: 400px;
+        width: 200px;
+        height: 390px;
     }
 
-    .aio-fan-card--left {
-        transform: translateX(-290px) translateY(-18px) rotate(-7deg) scale(0.9);
+    .aio-card--far-left {
+        transform: translateX(-380px) translateY(56px) rotate(-18deg) scale(0.85);
     }
 
-    .aio-fan-card--right {
-        transform: translateX(290px) translateY(-18px) rotate(7deg) scale(0.9);
+    .aio-card--near-left {
+        transform: translateX(-196px) translateY(22px) rotate(-9deg) scale(0.93);
     }
 
-    .aio-fan-card--left:hover {
-        transform: translateX(-290px) translateY(-22px) rotate(-7deg) scale(0.93);
+    .aio-card--center {
+        transform: translateX(0px) translateY(0px) rotate(0deg) scale(1);
     }
 
-    .aio-fan-card--right:hover {
-        transform: translateX(290px) translateY(-22px) rotate(7deg) scale(0.93);
+    .aio-card--near-right {
+        transform: translateX(196px) translateY(22px) rotate(9deg) scale(0.93);
     }
+
+    .aio-card--far-right {
+        transform: translateX(380px) translateY(56px) rotate(18deg) scale(0.85);
+    }
+
+}
+
+@media (max-width: 1024px) {
+    .aio-fan-container {
+        height: 330px;
+    }
+
+    .aio-fan-card {
+        width: 175px;
+        height: 345px;
+    }
+
+    .aio-card--far-left {
+        transform: translateX(-325px) translateY(50px) rotate(-17deg) scale(0.84);
+    }
+
+    .aio-card--near-left {
+        transform: translateX(-168px) translateY(20px) rotate(-8deg) scale(0.92);
+    }
+
+    .aio-card--center {
+        transform: translateX(0px) translateY(0px) rotate(0deg) scale(1);
+    }
+
+    .aio-card--near-right {
+        transform: translateX(168px) translateY(20px) rotate(8deg) scale(0.92);
+    }
+
+    .aio-card--far-right {
+        transform: translateX(325px) translateY(50px) rotate(17deg) scale(0.84);
+    }
+
 }
 
 @media (max-width: 768px) {
@@ -126,63 +159,145 @@
 
     .aio-title {
         font-size: 36px;
-        margin-bottom: 40px;
+        margin-bottom: 32px;
     }
 
     .aio-fan-container {
-        height: 380px;
+        height: 254px;
     }
 
     .aio-fan-card {
-        width: 220px;
-        height: 340px;
+        width: 140px;
+        height: 275px;
     }
 
-    .aio-fan-card--left {
-        transform: translateX(-230px) translateY(-14px) rotate(-6deg) scale(0.88);
+    .aio-card--far-left {
+        transform: translateX(-250px) translateY(42px) rotate(-16deg) scale(0.83);
     }
 
-    .aio-fan-card--right {
-        transform: translateX(230px) translateY(-14px) rotate(6deg) scale(0.88);
+    .aio-card--near-left {
+        transform: translateX(-132px) translateY(16px) rotate(-8deg) scale(0.91);
     }
 
-    .aio-fan-card--left:hover {
-        transform: translateX(-230px) translateY(-18px) rotate(-6deg) scale(0.91);
+    .aio-card--center {
+        transform: translateX(0px) translateY(0px) rotate(0deg) scale(1);
     }
 
-    .aio-fan-card--right:hover {
-        transform: translateX(230px) translateY(-18px) rotate(6deg) scale(0.91);
+    .aio-card--near-right {
+        transform: translateX(132px) translateY(16px) rotate(8deg) scale(0.91);
     }
+
+    .aio-card--far-right {
+        transform: translateX(250px) translateY(42px) rotate(16deg) scale(0.83);
+    }
+
 }
 
 @media (max-width: 520px) {
     .aio-title {
         font-size: 28px;
-        margin-bottom: 32px;
+        margin-bottom: 28px;
     }
 
     .aio-fan-container {
-        height: 320px;
+        height: 200px;
     }
 
     .aio-fan-card {
-        width: 180px;
-        height: 280px;
+        width: 105px;
+        height: 210px;
     }
 
-    .aio-fan-card--left {
-        transform: translateX(-180px) translateY(-10px) rotate(-5deg) scale(0.85);
+    .aio-card--far-left {
+        transform: translateX(-178px) translateY(32px) rotate(-15deg) scale(0.82);
     }
 
-    .aio-fan-card--right {
-        transform: translateX(180px) translateY(-10px) rotate(5deg) scale(0.85);
+    .aio-card--near-left {
+        transform: translateX(-96px) translateY(12px) rotate(-7deg) scale(0.90);
     }
 
-    .aio-fan-card--left:hover {
-        transform: translateX(-180px) translateY(-14px) rotate(-5deg) scale(0.88);
+    .aio-card--center {
+        transform: translateX(0px) translateY(0px) rotate(0deg) scale(1);
     }
 
-    .aio-fan-card--right:hover {
-        transform: translateX(180px) translateY(-14px) rotate(5deg) scale(0.88);
+    .aio-card--near-right {
+        transform: translateX(96px) translateY(12px) rotate(7deg) scale(0.90);
+    }
+
+    .aio-card--far-right {
+        transform: translateX(178px) translateY(32px) rotate(15deg) scale(0.82);
+    }
+
+}
+
+@media (max-width: 480px) {
+    .aio-title {
+        font-size: 26px;
+        margin-bottom: 24px;
+    }
+
+    .aio-fan-container {
+        height: 175px;
+    }
+
+    .aio-fan-card {
+        width: 95px;
+        height: 190px;
+    }
+
+    .aio-card--far-left {
+        transform: translateX(-150px) translateY(28px) rotate(-14deg) scale(0.82);
+    }
+
+    .aio-card--near-left {
+        transform: translateX(-80px) translateY(10px) rotate(-7deg) scale(0.90);
+    }
+
+    .aio-card--center {
+        transform: translateX(0px) translateY(0px) rotate(0deg) scale(1);
+    }
+
+    .aio-card--near-right {
+        transform: translateX(80px) translateY(10px) rotate(7deg) scale(0.90);
+    }
+
+    .aio-card--far-right {
+        transform: translateX(150px) translateY(28px) rotate(14deg) scale(0.82);
+    }
+}
+
+@media (max-width: 380px) {
+    .aio-title {
+        font-size: 22px;
+        margin-bottom: 20px;
+    }
+
+    .aio-fan-container {
+        height: 146px;
+    }
+
+    .aio-fan-card {
+        width: 75px;
+        height: 150px;
+    }
+
+    .aio-card--far-left {
+        transform: translateX(-120px) translateY(24px) rotate(-13deg) scale(0.8);
+    }
+
+    .aio-card--near-left {
+        transform: translateX(-65px) translateY(8px) rotate(-6deg) scale(0.9);
+    }
+
+    .aio-card--center {
+        transform: translateX(0px) translateY(0px) rotate(0deg) scale(1);
+    }
+
+    .aio-card--near-right {
+        transform: translateX(65px) translateY(8px) rotate(6deg) scale(0.9);
+    }
+
+    .aio-card--far-right {
+        transform: translateX(120px) translateY(24px) rotate(13deg) scale(0.8);
     }
 }

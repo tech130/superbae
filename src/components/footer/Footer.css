@@ -5,19 +5,18 @@
 /* ---------- Newsletter / CTA Strip ---------- */
 .footer-cta {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     padding: 40px 80px;
     border-bottom: 1px solid #e5e5e5;
 }
 
 .footer-cta__text {
-    color: #131313;
-    font-size: 26px;
-    font-style: normal;
-    font-weight: 510;
-    line-height: 36px;
-    max-width: 320px;
+    color: #000;
+    word-break: break-word;
+    font-size: 35px;
+    font-weight: 700;
+    line-height: 1.1;
 }
 
 .footer-cta__form {
@@ -90,8 +89,8 @@
 }
 
 .footer-brand__logo {
-    width: 120px;
-    height: auto;
+    width: 160px;
+    height: 100%;
 }
 
 .footer-brand__description {
@@ -216,6 +215,18 @@
 }
 
 /* ---------- Responsive ---------- */
+@media (max-width: 425px) {
+    .footer-cta {
+        text-align: center;
+        gap: 24px;
+        padding: 32px 24px;
+    }
+
+    .footer-brand {
+        align-items: center;
+    }
+}
+
 @media (max-width: 900px) {
     .footer-cta {
         flex-direction: column;

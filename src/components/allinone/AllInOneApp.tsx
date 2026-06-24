@@ -36,9 +36,9 @@ const AllInOneApp: React.FC = () => {
         switch (slot) {
             case -2: return 'aio-card--far-left';
             case -1: return 'aio-card--near-left';
-            case  0: return 'aio-card--center';
-            case  1: return 'aio-card--near-right';
-            case  2: return 'aio-card--far-right';
+            case 0: return 'aio-card--center';
+            case 1: return 'aio-card--near-right';
+            case 2: return 'aio-card--far-right';
             default: return '';
         }
     };

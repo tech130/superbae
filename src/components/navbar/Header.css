@@ -7748,6 +7748,11 @@ figure {
     transition: color .15s
 }
 
+.navigation_linkmain {
+    color: #d14e9a;
+    text-decoration: none;
+}
+
 .navigation_link:hover {
     color: #d14e9a
 }

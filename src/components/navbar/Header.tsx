@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import './Header.css';
 import Image from 'next/image';
 import { useCurrency } from '@/context/CurrencyContext';
@@ -95,9 +96,9 @@ const Header: React.FC = () => {
                 <div className="nav_main-wrapper">
                     <div className="nav_main">
                         <div className="nav_main-inner">
-                            <Link href="/" className="navigation_link">App</Link>
-                            <Link href="/" className="navigation_link">Club</Link>
-                            <Link href="/" className="navigation_link">Shop</Link>
+                            <Link href="/" className="navigation_linkmain">App</Link>
+                            <Link href="https://www.baehiveclub.com/" className="navigation_link">Club</Link>
+                            <Link href="https://www.superbae.shop/" className="navigation_link">Shop</Link>
                         </div>
 
                         {/* Currency Dropdown */}
@@ -243,9 +244,9 @@ const Header: React.FC = () => {
                     }}>
                     <div className="nav_main" style={{ display: 'flex', flexDirection: 'column', gap: '20px', padding: 0 }}>
                         <div className="nav_main-inner" style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-                            <Link href="/app" className="navigation_link" onClick={toggleMenu} style={{ fontSize: '18px', fontWeight: 500 }}>App</Link>
-                            <Link href="/club" className="navigation_link" onClick={toggleMenu} style={{ fontSize: '18px', fontWeight: 500 }}>Club</Link>
-                            <Link href="/shop" className="navigation_link" onClick={toggleMenu} style={{ fontSize: '18px', fontWeight: 500 }}>Shop</Link>
+                            <Link href="/app" className="navigation_linkmain" onClick={toggleMenu} style={{ fontSize: '18px', fontWeight: 500 }}>App</Link>
+                            <Link href="https://www.baehiveclub.com/" className="navigation_link" onClick={toggleMenu} style={{ fontSize: '18px', fontWeight: 500 }}>Club</Link>
+                            <Link href="https://www.superbae.shop/" className="navigation_link" onClick={toggleMenu} style={{ fontSize: '18px', fontWeight: 500 }}>Shop</Link>
                             {/* Currency Dropdown */}
                             <div className="currency-dropdown" ref={currencyRef}>
                                 <button

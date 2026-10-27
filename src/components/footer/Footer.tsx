@@ -78,6 +78,7 @@ const Footer: React.FC = () => {
                         <Link href="/" className="footer-nav__link">Solutions</Link>
                         <Link href="/" className="footer-nav__link">Resources</Link>
                         <Link href="/" className="footer-nav__link">Testimonials</Link>
+                        <Link href="/support" className="footer-nav__link">Support</Link>
                     </nav>
 
                     {/* Contact info */}

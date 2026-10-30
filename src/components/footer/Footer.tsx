@@ -94,8 +94,8 @@ const Footer: React.FC = () => {
 
                     {/* Legal links */}
                     <div className="footer-legal">
-                        <Link href="/" className="footer-legal__link">Privacy Policy</Link>
-                        <Link href="/" className="footer-legal__link">Terms &amp; Conditions</Link>
+                        <Link href="/privacy-policy" className="footer-legal__link">Privacy Policy</Link>
+                        <Link href="/terms-and-conditions" className="footer-legal__link">Terms &amp; Conditions</Link>
                     </div>
                 </div>
             </div>

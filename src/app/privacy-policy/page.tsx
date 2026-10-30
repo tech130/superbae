@@ -114,7 +114,10 @@ export default function PrivacyPolicyPage() {
         <p>We respond to requests within 30 days. We may ask you to verify your identity first.</p>
       </section>
       <section><h2>11. Children</h2><p>Super Bae is for adults aged 18 and over. We do not knowingly collect data from anyone under 18. If you believe a child has created an account, write to <a href="mailto:privacy@superbae.co">privacy@superbae.co</a> and we will delete it.</p></section>
-      <section><h2>12. Grievance Officer and contact</h2><p>Grievance Officer: [Grievance Officer name] Space and Beauty Creations Private Limited, [Registered office address], Chennai, India Email: <a href="mailto:privacy@superbae.co">privacy@superbae.co</a></p><p>We acknowledge grievances within 24 hours and resolve them within 15 days.</p></section>
+      <section><h2>12. Grievance and contact</h2><p>Grievance - Space and Beauty Creations Private Limited, 782, 1st Floor, Anna Salai, Above
+Sundaram Honda, Opp. YMCA Grounds,
+CIT Nagar East, Nandanam, Chennai,
+Tamil Nadu, India 600 035., Chennai, India Email: <a href="mailto:support@superbae.co">support@superbae.co</a></p><p>We acknowledge grievances within 24 hours and resolve them within 15 days.</p></section>
       <section><h2>13. Changes to this policy</h2><p>We will post changes here and update the effective date. For significant changes, we will notify you in the app before they take effect.</p></section>
     </LegalDocument>
     <Footer />

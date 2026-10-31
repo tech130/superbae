@@ -79,6 +79,7 @@ const Footer: React.FC = () => {
                         <Link href="/" className="footer-nav__link">Resources</Link>
                         <Link href="/" className="footer-nav__link">Testimonials</Link>
                         <Link href="/support" className="footer-nav__link">Support</Link>
+                        <Link href="/delete-account" className="footer-nav__link">Delete Account</Link>
                     </nav>
 
                     {/* Contact info */}
